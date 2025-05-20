@@ -15,7 +15,7 @@ $ cd netstick
 $ cmake ./CMakeLists.txt
 $ make
 $ cd ..
-$ # build rgetstick
+$ # build rgnetstick
 $ python3 -m venv .venv
 $ . .venv/bin/activate
 $ pip install -r requirements.txt
