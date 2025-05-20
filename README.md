@@ -10,12 +10,16 @@ Building:
 ```
 $ git clone https://github.com/rasprague/rgnetstick.git
 $ cd rgnetstick
-$ python3 -m venv .venv
-$ . .venv/bin/activate
+$ # compile netstick binaray
 $ cd netstick
 $ cmake ./CMakeLists.txt
 $ make
 $ cd ..
+$ # build rgetstick
+$ python3 -m venv .venv
+$ . .venv/bin/activate
+$ pip install -r requirements.txt
 $ pyxel package . rgnetstick.py
 $ pyxel app2exe rgnetstick.pyxapp
+$ # output binary is rgnetstick
 ```
