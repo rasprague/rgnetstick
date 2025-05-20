@@ -24,7 +24,8 @@ class DeviceList:
 
     def refresh_menu_options(self):
         menu_options = []
-        for dev in glob.glob("/dev/input/by-id/*event-joystick"):
+        #for dev in glob.glob("/dev/input/by-id/*event-joystick"):
+        for dev in glob.glob("/dev/input/event*"):
             menu_options.append(dev.split("/")[-1])
         menu_options.append("clear")
         menu_options.append("enter")
