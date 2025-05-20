@@ -102,5 +102,5 @@ class SettingsScreen():
         pyxel.cls(BLACK)
         x = 8
         y = 8
-        pyxel.text(x, y, "NETSTICK CLIENT", WHITE)
+        pyxel.text(x, y, "RGNETSTICK - a netstick frontend", WHITE)
         self.menu.draw()
