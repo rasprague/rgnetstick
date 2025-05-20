@@ -4,8 +4,8 @@ import os
 class Netstick:
     def __init__(self):
         self.path_to_netstick = "%s/netstick/netstick" % os.path.dirname(__file__)
+        os.chmod(self.path_to_netstick, 755) # make sure netstick is executable
         self.netstick_process = None
-        print(self.path_to_netstick)
 
     def start(self, input_device, server_address, server_port):
         self.netstick_process = subprocess.Popen([self.path_to_netstick, input_device, server_address, server_port])

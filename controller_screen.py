@@ -50,13 +50,15 @@ class ControllerScreen:
                   
     def draw(self):
         pyxel.cls(BLACK)
-        pyxel.text(0, 0, "KEYS:", WHITE)
+        pyxel.text(0, 0, "(BACK+START+L1+R1+L2+R2 to exit)", WHITE)
         x = 0
         y = 8
         for i in range(len(self.digital_keys)):
             k = self.digital_keys[i]
-            if pyxel.btn(k[0]):
-                pyxel.text(x, y, k[1], WHITE)
+            # if pyxel.btn(k[0]):
+            #     pyxel.text(x, y, k[1], WHITE)
+            status = "x" if pyxel.btn(k[0]) else ""
+            pyxel.text(x, y, "%s %s" % (k[1], status), WHITE)
             y += 8
         x = 80
         y = 8
