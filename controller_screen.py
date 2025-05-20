@@ -11,7 +11,8 @@ class ControllerScreen:
         self.netstick = None
         if start_netstick:
             self.netstick : Netstick = Netstick()
-            self.netstick.start("/dev/input/by-id/%s" % settings["INPUT_DEVICE"], settings["SERVER_IP"], settings["SERVER_PORT"])
+            #self.netstick.start("/dev/input/by-id/%s" % settings["INPUT_DEVICE"], settings["SERVER_IP"], settings["SERVER_PORT"])
+            self.netstick.start("/dev/input/%s" % settings["INPUT_DEVICE"], settings["SERVER_IP"], settings["SERVER_PORT"])
 
         self.digital_keys = [
             (pyxel.GAMEPAD1_BUTTON_DPAD_UP, "DPAD_UP"),
