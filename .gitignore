@@ -176,6 +176,8 @@ cython_debug/
 *.pyxapp
 rgnetstick
 
+.ports
+
 netstick/CMakeCache.txt
 netstick/CMakeFiles/
 netstick/Makefile
