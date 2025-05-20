@@ -175,3 +175,10 @@ cython_debug/
 
 *.pyxapp
 rgnetstick
+
+netstick/CMakeCache.txt
+netstick/CMakeFiles/
+netstick/Makefile
+netstick/cmake_install.cmake
+netstick/netstick
+netstick/netstickd
