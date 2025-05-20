@@ -2,6 +2,7 @@ import pyxel
 from pyxel_menu import PyxelMenu
 import json
 import os
+from pathlib import Path
 from netstick import Netstick
 from device_list import DeviceList
 from menu_numpad import MenuNumpad
@@ -18,8 +19,14 @@ class SettingsScreen():
         self.settings = {
             "INPUT_DEVICE" : "",
             "SERVER_IP" : "",
-            "SERVER_PORT" : ""
+            "SERVER_PORT" : "1337"
         }
+        self.settings_dir = "%s/.local/share/rgnetstick" % str(Path.home())
+        try:
+            os.makedirs(self.settings_dir)
+        except Exception as e:
+            pass
+        self.settings_path = "%s/settings.json" % self.settings_dir
         self.load_settings()
 
         self.current_text = ''
@@ -31,12 +38,12 @@ class SettingsScreen():
         self.refresh_menu_options()
 
     def save_settings(self):
-        with open("settings.json", "w") as file:
+        with open(self.settings_path, "w") as file:
             file.write(json.dumps(self.settings, indent=4))
 
     def load_settings(self):
         try:
-            with open("settings.json", "r") as file:
+            with open(self.settings_path, "r") as file:
                 self.settings = json.load(file)
         except FileNotFoundError:
             pass
