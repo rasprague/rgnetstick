@@ -10,7 +10,8 @@ Building:
 ```
 $ git clone https://github.com/rasprague/rgnetstick.git
 $ cd rgnetstick
-$ # compile netstick binaray
+$ # compile netstick binary
+$ # do a cross-compile here as needed
 $ cd netstick
 $ cmake ./CMakeLists.txt
 $ make
