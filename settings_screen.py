@@ -5,7 +5,6 @@ import os
 from pathlib import Path
 from netstick import Netstick
 from device_list import DeviceList
-from menu_numpad import MenuNumpad
 from numpad import Numpad
 from controller_screen import ControllerScreen
 
@@ -73,10 +72,8 @@ class SettingsScreen():
             case 0: # input device
                 self.app.screen_stack.append(DeviceList(self.app, on_enter=self.on_enter_numpad, title="INPUT_DEVICE", text=self.settings["INPUT_DEVICE"]))
             case 1: # server ip
-                #self.app.screen_stack.append(MenuNumpad(self.app, on_enter=self.on_enter_numpad, title="SERVER_IP", text=self.settings["SERVER_IP"]))
                 self.app.screen_stack.append(Numpad(self.app, on_enter=self.on_enter_numpad, title="SERVER_IP", text=self.settings["SERVER_IP"]))
             case 2: # server port
-                #self.app.screen_stack.append(MenuNumpad(self.app, on_enter=self.on_enter_numpad, title="SERVER_PORT", text=self.settings["SERVER_PORT"]))
                 self.app.screen_stack.append(Numpad(self.app, on_enter=self.on_enter_numpad, title="SERVER_PORT", text=self.settings["SERVER_PORT"]))
             case 3: # start
                 self.app.screen_stack.append(ControllerScreen(settings=self.settings))
