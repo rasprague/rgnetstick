@@ -19,7 +19,7 @@ class SettingsScreen():
         self.settings = {
             "INPUT_DEVICE" : "",
             "SERVER_IP" : "",
-            "SERVER_PORT" : "1337"
+            "SERVER_PORT" : "13377"
         }
         self.settings_dir = "%s/.local/share/rgnetstick" % str(Path.home())
         try:
@@ -55,8 +55,9 @@ class SettingsScreen():
     def refresh_menu_options(self):
         menu_options = [
             "INPUT_DEVICE: %s" % self.settings["INPUT_DEVICE"],
-            "SERVER_IP: %s" % self.settings["SERVER_IP"], 
-            "SERVER_PORT: %s" % self.settings["SERVER_PORT"], 
+            "SERVER_IP: %s" % self.settings["SERVER_IP"],
+            "SERVER_PORT: %s" % self.settings["SERVER_PORT"],
+            "",
             "start",
             "controller test only",
             "quit",
@@ -75,11 +76,13 @@ class SettingsScreen():
                 self.app.screen_stack.append(Numpad(self.app, on_enter=self.on_enter_numpad, title="SERVER_IP", text=self.settings["SERVER_IP"]))
             case 2: # server port
                 self.app.screen_stack.append(Numpad(self.app, on_enter=self.on_enter_numpad, title="SERVER_PORT", text=self.settings["SERVER_PORT"]))
-            case 3: # start
+            case 3: # 
+                pass
+            case 4: # start
                 self.app.screen_stack.append(ControllerScreen(settings=self.settings))
-            case 4: # controller test only
+            case 5: # controller test only
                 self.app.screen_stack.append(ControllerScreen(settings=self.settings, start_netstick=False))
-            case 5: # quit
+            case 6: # quit
                 self.exit()
             case _: # default
                 pass
