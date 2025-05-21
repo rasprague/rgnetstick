@@ -1,7 +1,7 @@
 # title: rgnetstick
 # author: Richard Sprague
 # desc: A simple frontend for netstick
-# site: 
+# site: https://github.com/rasprague/rgnetstick
 # license: MIT
 # version: 1.0
 
@@ -15,6 +15,7 @@ class App:
         self.screen_stack = []
         self.screen_stack.append(SettingsScreen(self))
         pyxel.init(WIDTH, HEIGHT, quit_key=pyxel.KEY_NONE)
+        pyxel.load("my_resource.pyxres")
         pyxel.run(self.update, self.draw)
 
     def current_screen(self):
@@ -28,7 +29,7 @@ class App:
     def update(self):
         self.current_screen().update()
         if self.current_screen().is_done:
-            self.screen_stack.pop();
+            self.screen_stack.pop()
             if self.current_screen() is None:
                 self.exit()
 
