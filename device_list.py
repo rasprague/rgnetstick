@@ -16,7 +16,7 @@ class DeviceList:
         self.current_text = ""
         x = 8
         y = 32
-        self.menu = PyxelMenu(x, y)
+        self.menu = PyxelMenu(x, y, limit=10)
         self.refresh_menu_options()
 
     def exit(self):
@@ -26,6 +26,7 @@ class DeviceList:
         menu_options = []
         for dev in glob.glob("/dev/input/event*"):
             menu_options.append(dev.split("/")[-1])
+        menu_options.append("")
         menu_options.append("clear")
         menu_options.append("enter")
         menu_options.append("cancel")
@@ -39,7 +40,9 @@ class DeviceList:
                 self.on_enter(self.title, self.text)
                 self.exit()
             case "cancel":
-                self.exit();
+                self.exit()
+            case "":
+                pass
             case _: # default
                 self.text = self.current_text
 
