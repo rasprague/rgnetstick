@@ -3,7 +3,7 @@
 # desc: A simple frontend for netstick
 # site: https://github.com/rasprague/rgnetstick
 # license: MIT
-# version: 1.0
+# version: 1.1
 
 import pyxel
 from settings_screen import SettingsScreen
